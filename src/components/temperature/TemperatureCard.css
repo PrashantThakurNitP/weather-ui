@@ -1,0 +1,18 @@
+.temperature-card {
+    border: 2px solid #81ff00 ;
+    border-radius: 10px;
+    background-color: #d4ebd4;
+    max-width: 200px;
+    min-width: 100px;
+    margin: 10px;
+
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.selected-card {
+    /* Add your desired styles for the selected card. For example: */
+    border: 6px solid #81ff00;
+    box-shadow: 8px 8px 20px rgb(0 0 0 / 37%);
+  }

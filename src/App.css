@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
 }
 
 .App-logo {
@@ -18,7 +22,6 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
@@ -35,4 +38,26 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Remove default list styling */
+.horizontal-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+  overflow-x: auto;
+  list-style-type: none;
+}
+
+/* Display list items horizontally */
+.horizontal-list div {
+  display: inline-block;
+  width: 100%;
+  margin: auto;
+}
+
+ul{
+  padding-inline-start: 40px;
+  padding-inline-end: 40px;
 }
