@@ -1,9 +1,8 @@
-Copy code
-# Use an official Node.js LTS version as the base image
-FROM node:20-alpine
+
+# Use an official Node.js LTS version as the base imageFROM node:20-alpine
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json (if present)
 COPY package*.json ./
