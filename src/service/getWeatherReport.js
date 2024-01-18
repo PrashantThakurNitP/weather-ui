@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getWeatherReport = async (city) => {
-  const apiUrl = "http://127.0.0.1:56020/v1/weather";
+  const apiUrl = "http://weather-service-k8s:80/v1/weather";
 
   try {
     const response = await axios.get(apiUrl, { params: { cityName: city } });
