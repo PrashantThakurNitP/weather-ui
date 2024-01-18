@@ -1,10 +1,9 @@
 pipeline{
     agent any
-    parameters {
-            string(name: 'K8S_MANIFEST_FILE', defaultValue: 'deploymentservice.yaml', description: 'Path to your Kubernetes manifest file')
-            string(name: 'DOCKER_IMAGE', defaultValue: 'prathaku3docker/weather-microservice', description: 'Docker image name')
-            string(name: 'DOCKER_IMAGE_TAG', defaultValue: 'latest', description: 'Docker image Tag')
-        }
+    tools {
+    nodejs 'nodejs'
+   }
+   
     stages{
         stage('Checkout') {
             steps {
@@ -12,17 +11,11 @@ pipeline{
             }
         }
 
-        stage('Install Dependencies') {
-            steps {
-                script {
-                    // Use Node.js with NVM
-                    sh "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash"
-                    sh "export NVM_DIR=\"\$HOME/.nvm\" && [ -s \"\$NVM_DIR/nvm.sh\" ] && \\. \"\$NVM_DIR/nvm.sh\""
-                    sh "nvm install 20"
-                    sh "npm install"
-                }
-            }
+        stage('Startup') {
+        steps {
+          sh 'npm install --force --verbose'
         }
+      }
 
         stage('Build') {
             steps {
