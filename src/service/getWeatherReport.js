@@ -1,12 +1,18 @@
 import axios from "axios";
 
 export const getWeatherReport = async (city) => {
-  const apiUrl = "http://weather-service-svc:8080/v1/weather";
+  const apiUrl = "http://localhost:8080/v1/weather";
 
   try {
-    const response = await axios.get(apiUrl, { params: { cityName: city } });
+    const response1 = await axios.get(apiUrl, { params: { cityName: city } });
+    console.log(response1);
 
-    return response;
+    const response2 = await axios.get("http://localhost:8086/v1/weather", {
+      params: { cityName: city },
+    });
+    console.log(response2);
+
+    return response1;
   } catch (error) {
     console.error(error);
     throw error;
