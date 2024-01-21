@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./TemperatureCard.css";
+import "./WeatherCard.css";
 
-export const TemperatureCard = ({ weather }) => {
+export const WeatherCard = ({ weather }) => {
   const {
     message,
     icon,
@@ -32,37 +32,25 @@ export const TemperatureCard = ({ weather }) => {
   });
 
   return (
-    <div className="weather-card">
-      <h2>{description}</h2>
+    <div data-testid="weather-card" className="weather-card">
+      <h2 data-testid="weather-card-description">{description}</h2>
       <img
+        data-testid="weather-card-img"
         src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
         alt={description}
       />
-      <p>{`Date: ${date}, Time: ${timeString12hr}`}</p>
-      <p>
+      <p data-testid="weather-card-date">{`Date: ${date}, Time: ${timeString12hr}`}</p>
+      <p data-testid="weather-card-temperature">
         {`Temperature: ${temperature}°C /Feels Like: ${feelsLike}`}
         <br />
         Min: {Math.round(minTemperature)}°C / Max: {Math.round(maxTemperature)}
         °C
       </p>
-      <p>{`Wind Speed: ${windSpeed} m/s`}</p>
-      <p>{`Humidity: ${humidity}`}</p>
-      <p>{`Visibility: ${visibility}`}</p>
-      <p>{`Pressure: ${pressure}`}</p>
-      <p>{message}</p>
+      <p data-testid="weather-card-wind">{`Wind Speed: ${windSpeed} m/s`}</p>
+      <p data-testid="weather-card-humidity">{`Humidity: ${humidity}`}</p>
+      <p data-testid="weather-card-visibility">{`Visibility: ${visibility}`}</p>
+      <p data-testid="weather-card-pressure">{`Pressure: ${pressure}`}</p>
+      <p data-testid="weather-card-message">{message}</p>
     </div>
   );
-};
-
-TemperatureCard.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  selected: PropTypes.bool,
-  weatherStat: PropTypes.shape({
-    day: PropTypes.string,
-    date: PropTypes.number,
-    minTemp: PropTypes.number,
-    maxTemp: PropTypes.number,
-    type: PropTypes.string,
-    alt: PropTypes.string,
-  }).isRequired,
 };

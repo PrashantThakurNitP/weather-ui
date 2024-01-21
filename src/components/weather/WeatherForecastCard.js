@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./TemperatureForecastCard.css";
+import "./WeatherForecastCard.css";
 
-export const TemperatureForecastCard = ({ weather, onClickCard }) => {
+export const WeatherForecastCard = ({ weather, onClickCard }) => {
   const {
     message,
     icon,
@@ -29,34 +29,26 @@ export const TemperatureForecastCard = ({ weather, onClickCard }) => {
     onClickCard(weather);
   };
   return (
-    <div className="weather-card" onClick={handleCardClick}>
-      <h2>{description}</h2>
+    <div
+      data-testid="forecast-card"
+      className="weather-card"
+      onClick={handleCardClick}
+    >
+      <h2 data-testid="forecast-card-description">{description}</h2>
       <img
+        data-testid="forecast-card-img"
         src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
         alt={description}
       />
       <p>{`Date: ${date}, Time: ${timeString12hr}`}</p>
-      <p>
+      <p data-testid="forecast-card-temperature">
         {`Temperature: ${temperature}°C`}
         <br />
         Min: {Math.round(minTemperature)}°C / Max: {Math.round(maxTemperature)}
         °C
       </p>
 
-      <p>{`Wind Speed: ${windSpeed} m/s`}</p>
+      <p data-testid="forecast-card-wind">{`Wind Speed: ${windSpeed} m/s`}</p>
     </div>
   );
-};
-
-TemperatureForecastCard.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  selected: PropTypes.bool,
-  weatherStat: PropTypes.shape({
-    day: PropTypes.string,
-    date: PropTypes.number,
-    minTemp: PropTypes.number,
-    maxTemp: PropTypes.number,
-    type: PropTypes.string,
-    alt: PropTypes.string,
-  }).isRequired,
 };

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
 import { SearchComponent } from "./components/search/SearchComponent";
-import { TemperatureCard } from "./components/temperature/TemperatureCard";
+import { WeatherCard } from "./components/weather/WeatherCard";
 import { v4 as uuidv4 } from "uuid";
-import { TemperatureForecastCard } from "./components/temperature/TemperatureForecastCard";
+import { WeatherForecastCard } from "./components/weather/WeatherForecastCard";
 
 function App() {
   const [weatherStats, setWeatherStats] = useState([]);
@@ -47,13 +47,13 @@ function App() {
         <div className="content-wrapper">
           {weatherStats && weatherStats.length > 0 && (
             <div className="horizontal-list">
-              <TemperatureCard key={uuidv4()} weather={currentWeather} />
+              <WeatherCard key={uuidv4()} weather={currentWeather} />
             </div>
           )}
           {weatherStats && weatherStats.length > 0 && (
             <div className="horizontal-list">
               {weatherStats.map((weather) => (
-                <TemperatureForecastCard
+                <WeatherForecastCard
                   key={uuidv4()}
                   weather={weather}
                   onClickCard={onClickCard}
