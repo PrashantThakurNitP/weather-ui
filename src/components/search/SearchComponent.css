@@ -1,49 +1,29 @@
-input[type="text"] {
-    max-width: 100%;
-    box-sizing: border-box; 
-  }
-  
-  .input-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  
-  }
-  
-  .search-component {
-  
-    margin: 20px 0;
-  }
-  
-  .input-field {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-    background-color: #d4ebd4;
-  }
-  
-  .submit-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #00d90e;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s;
-  }
-  
-  .submit-button:hover {
-    background-color: #04680b;
-  }
-  
-  .error-message {
-    color: #ff4d4d;
-    margin: 0;
-    text-align: center;
-    font-size: 14px;
-  }
+/* SearchComponent.css */
+
+.search-component {
+  margin-bottom: 20px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-field {
+  padding: 8px;
+  margin-right: 10px;
+  width: 200px;
+}
+
+.submit-button {
+  padding: 8px;
+  background-color: #3498db;
+  color: #fff;
+  cursor: pointer;
+}
+
+.error-message {
+  color: #e74c3c;
+  margin-top: 10px;
+}

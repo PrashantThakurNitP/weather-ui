@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./TemperatureCard.css";
+import "./TemperatureForecastCard.css";
 
-export const TemperatureCard = ({ weather }) => {
+export const TemperatureForecastCard = ({ weather, onClickCard }) => {
   const {
     message,
     icon,
@@ -14,14 +14,9 @@ export const TemperatureCard = ({ weather }) => {
       windSpeed,
       minTemperature,
       maxTemperature,
-      feelsLike,
-      humidity,
-      pressure,
-      visibility,
     },
     weatherType,
   } = weather;
-
   const timeString12hr = new Date(
     "1970-01-01T" + time + "Z"
   ).toLocaleTimeString("en-US", {
@@ -30,9 +25,11 @@ export const TemperatureCard = ({ weather }) => {
     hour: "numeric",
     minute: "numeric",
   });
-
+  const handleCardClick = () => {
+    onClickCard(weather);
+  };
   return (
-    <div className="weather-card">
+    <div className="weather-card" onClick={handleCardClick}>
       <h2>{description}</h2>
       <img
         src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
@@ -40,21 +37,18 @@ export const TemperatureCard = ({ weather }) => {
       />
       <p>{`Date: ${date}, Time: ${timeString12hr}`}</p>
       <p>
-        {`Temperature: ${temperature}°C /Feels Like: ${feelsLike}`}
+        {`Temperature: ${temperature}°C`}
         <br />
         Min: {Math.round(minTemperature)}°C / Max: {Math.round(maxTemperature)}
         °C
       </p>
+
       <p>{`Wind Speed: ${windSpeed} m/s`}</p>
-      <p>{`Humidity: ${humidity}`}</p>
-      <p>{`Visibility: ${visibility}`}</p>
-      <p>{`Pressure: ${pressure}`}</p>
-      <p>{message}</p>
     </div>
   );
 };
 
-TemperatureCard.propTypes = {
+TemperatureForecastCard.propTypes = {
   onClick: PropTypes.func.isRequired,
   selected: PropTypes.bool,
   weatherStat: PropTypes.shape({
