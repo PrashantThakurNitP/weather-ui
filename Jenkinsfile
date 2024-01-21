@@ -16,6 +16,11 @@ pipeline{
           sh 'npm install --force --verbose'
         }
       }
+       stage('Test'){
+        steps {
+          sh 'npm run test'
+        }
+      }
 
         stage('Build') {
             steps {

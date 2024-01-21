@@ -22,6 +22,9 @@ const mockWeatherData = {
 const mockOnClickCard = jest.fn();
 
 describe("TemperatureForecastCard", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
   it("renders component with weather data", () => {
     const { getByTestId, getByText } = render(
       <WeatherForecastCard

@@ -4,6 +4,7 @@ import { SearchComponent } from "./components/search/SearchComponent";
 import { WeatherCard } from "./components/weather/WeatherCard";
 import { v4 as uuidv4 } from "uuid";
 import { WeatherForecastCard } from "./components/weather/WeatherForecastCard";
+import { getSelectedRecord } from "./service/getSelectedRecord";
 
 function App() {
   const [weatherStats, setWeatherStats] = useState([]);
@@ -11,24 +12,12 @@ function App() {
 
   const handleCitySubmit = (stats) => {
     setWeatherStats(stats);
-    setCurrentWeather(filterRecords(stats));
+    setCurrentWeather(getSelectedRecord(stats));
   };
   const handleInvalidCity = () => {
     setWeatherStats([]);
   };
-  function filterRecords(records) {
-    const currentUnixTime = new Date().getTime() / 1000;
 
-    const filteredRecords = records.find((record) => {
-      const recordTime =
-        new Date(
-          `${record.dailyWeathers.date}T${record.dailyWeathers.time}`
-        ).getTime() / 1000;
-      return Math.abs(recordTime - currentUnixTime) < 5400; // Assuming a tolerance of 30 minutes (1800 seconds)
-    });
-
-    return filteredRecords;
-  }
   const onClickCard = (weather) => {
     setCurrentWeather(weather);
   };
@@ -36,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Weather App</h1>
+        <h1 data-testid="headline-app-name">Weather App</h1>
       </header>
       <main className="app-main">
         <SearchComponent

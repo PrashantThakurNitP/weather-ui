@@ -9,6 +9,9 @@ jest.mock("../../service/getWeatherReport");
 const mockWeatherData = {};
 
 describe("SearchComponent", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
   it("renders component with input field and submit button", () => {
     const { getByPlaceholderText, getByText } = render(
       <SearchComponent onSubmitCity={() => {}} handleInvalidCity={() => {}} />

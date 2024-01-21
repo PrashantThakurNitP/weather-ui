@@ -23,6 +23,9 @@ const mockWeatherData = {
 };
 
 describe("TemperatureCard", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
   test("renders temperature card with weather data", () => {
     render(<WeatherCard weather={mockWeatherData} />);
 
