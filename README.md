@@ -21,9 +21,12 @@ Launches the test runner in the interactive watch mode.\
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
-Flow Chart of Application
-![Alt text](weatherappflowchart.png)
+**Flow Chart of Application**
+![
+    
+](weatheappflowchart.png)
 
-Code Coverage
+**Code Coverage**
 ![Alt text](<weather app coverage.png>)
+
 
