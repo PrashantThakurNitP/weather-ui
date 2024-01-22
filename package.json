@@ -39,6 +39,19 @@
       "last 1 safari version"
     ]
   },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "testMatch": [
+      "**/*.steps.js",
+      "**/*.test.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "index.js",
+      "serviceWorker.js"
+    ]
+  },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }

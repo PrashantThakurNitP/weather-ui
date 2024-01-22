@@ -19,7 +19,6 @@ export const WeatherCard = ({ weather }) => {
       pressure,
       visibility,
     },
-    weatherType,
   } = weather;
 
   const timeString12hr = new Date(
@@ -71,6 +70,5 @@ WeatherCard.propTypes = {
       pressure: PropTypes.number.isRequired,
       visibility: PropTypes.number.isRequired,
     }).isRequired,
-    weatherType: PropTypes.string.isRequired,
   }).isRequired,
 };

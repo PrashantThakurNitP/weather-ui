@@ -15,7 +15,6 @@ export const WeatherForecastCard = ({ weather, onClickCard }) => {
       minTemperature,
       maxTemperature,
     },
-    weatherType,
   } = weather;
   const timeString12hr = new Date(
     "1970-01-01T" + time + "Z"
@@ -49,6 +48,7 @@ export const WeatherForecastCard = ({ weather, onClickCard }) => {
       </p>
 
       <p data-testid="forecast-card-wind">{`Wind Speed: ${windSpeed} m/s`}</p>
+      <p data-testid="forecast-card-message">{message}</p>
     </div>
   );
 };
@@ -69,7 +69,6 @@ WeatherForecastCard.propTypes = {
       pressure: PropTypes.number.isRequired,
       visibility: PropTypes.number.isRequired,
     }).isRequired,
-    weatherType: PropTypes.string.isRequired,
   }).isRequired,
   onClickCard: PropTypes.func,
 };
