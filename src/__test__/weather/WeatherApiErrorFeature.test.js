@@ -23,8 +23,11 @@ defineFeature(feature, (test) => {
         return Promise.reject('{"error": "NOT FOUND"}');
       });
 
-      // Assuming getWeatherReport fetches weather data using Axios
-      response = await getWeatherReport(city);
+      try {
+        response = await getWeatherReport(city);
+      } catch (err) {
+        response = err;
+      }
     });
 
     then(/^the Error should be returned (.*)$/, (expectedError) => {
