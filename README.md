@@ -13,7 +13,7 @@ npm start
 
 ## Flow Chart of Application
 
-![Alt text](flowchart.drawio.png)
+![Alt text](flowchartweatherapp.drawio.png)
 
 ## Code Coverage
 
