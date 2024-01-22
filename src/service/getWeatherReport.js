@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getWeatherReport = async (city) => {
-  const apiUrl = "http://localhost:8080/v1/weather";
+  const apiUrl = `${process.env.REACT_APP_WEATHER_SERVICE_API_URL}${process.env.REACT_APP_WEATHER_SERVICE_GET_WEATHER_ENDPOINT}`;
 
   try {
     const response = await axios.get(apiUrl, {
@@ -9,6 +9,8 @@ export const getWeatherReport = async (city) => {
     });
     return response;
   } catch (error) {
+    if (!navigator.onLine)
+      console.log("Offline: Displaying cached data or offline message");
     throw error;
   }
 };

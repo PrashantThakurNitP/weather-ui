@@ -9,6 +9,7 @@ import { getSelectedRecord } from "./service/getSelectedRecord";
 function App() {
   const [weatherStats, setWeatherStats] = useState([]);
   const [currentWeather, setCurrentWeather] = useState();
+
   const handleCitySubmit = (stats) => {
     setWeatherStats(stats);
     setCurrentWeather(getSelectedRecord(stats));
