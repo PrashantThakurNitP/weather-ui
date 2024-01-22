@@ -7,6 +7,7 @@ const mockWeatherData = {
   message: "Mock Message",
   icon: "01d",
   description: "Mock Description",
+  timezoneOffset: 18000,
   dailyWeathers: {
     temperature: 25,
     date: "2024-01-21",
@@ -34,7 +35,7 @@ describe("TemperatureCard", () => {
       "Mock Description"
     );
     expect(screen.getByTestId("weather-card-date")).toHaveTextContent(
-      "Date: 2024-01-21, Time: 12:00 PM"
+      "Date: 2024-01-21, Time: 5:00 PM"
     );
     expect(screen.getByTestId("weather-card-temperature")).toHaveTextContent(
       "Temperature: 25°C /Feels Like: 26Min: 20°C / Max: 30°C"

@@ -7,6 +7,7 @@ export const WeatherCard = ({ weather }) => {
     message,
     icon,
     description,
+    timezoneOffset,
     dailyWeathers: {
       temperature,
       date,
@@ -20,9 +21,15 @@ export const WeatherCard = ({ weather }) => {
       visibility,
     },
   } = weather;
+  const combinedDateTime = `${date}T${time}`;
+  const originalDateTime = new Date(combinedDateTime);
 
+  originalDateTime.setSeconds(originalDateTime.getSeconds() + timezoneOffset);
+
+  const newDate = originalDateTime.toISOString().split("T")[0];
+  const newTime = originalDateTime.toTimeString().split(" ")[0];
   const timeString12hr = new Date(
-    "1970-01-01T" + time + "Z"
+    "1970-01-01T" + newTime + "Z"
   ).toLocaleTimeString("en-US", {
     timeZone: "UTC",
     hour12: true,
@@ -38,7 +45,7 @@ export const WeatherCard = ({ weather }) => {
         src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
         alt={description}
       />
-      <p data-testid="weather-card-date">{`Date: ${date}, Time: ${timeString12hr}`}</p>
+      <p data-testid="weather-card-date">{`Date: ${newDate}, Time: ${timeString12hr}`}</p>
       <p data-testid="weather-card-temperature">
         {`Temperature: ${temperature}°C /Feels Like: ${feelsLike}`}
         <br />
@@ -70,5 +77,6 @@ WeatherCard.propTypes = {
       pressure: PropTypes.number.isRequired,
       visibility: PropTypes.number.isRequired,
     }).isRequired,
+    timezoneOffset: PropTypes.number,
   }).isRequired,
 };

@@ -8,6 +8,7 @@ const mockWeatherData = {
   message: "Mock Weather",
   icon: "01d",
   description: "Clear Sky",
+  timezoneOffset: 18000,
   dailyWeathers: {
     temperature: 25,
     date: "2024-01-22",
@@ -41,7 +42,7 @@ describe("TemperatureForecastCard", () => {
       "Clear Sky"
     );
     expect(getByTestId("forecast-card-img")).toBeInTheDocument();
-    expect(getByText("Date: 2024-01-22, Time: 12:00 PM")).toBeInTheDocument();
+    expect(getByText("Date: 2024-01-22, Time: 5:00 PM")).toBeInTheDocument();
     expect(getByTestId("forecast-card-temperature")).toHaveTextContent(
       "Temperature: 25°CMin: 20°C / Max: 30°C"
     );
