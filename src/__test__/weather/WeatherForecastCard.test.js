@@ -15,6 +15,10 @@ const mockWeatherData = {
     windSpeed: 5,
     minTemperature: 20,
     maxTemperature: 30,
+    feelsLike: 26,
+    humidity: 50,
+    pressure: 1010,
+    visibility: 10,
   },
   weatherType: "Clear",
 };

@@ -9,7 +9,6 @@ export const getWeatherReport = async (city) => {
     });
     return response;
   } catch (error) {
-    console.error("error", error);
-    throw error;
+    return error;
   }
 };

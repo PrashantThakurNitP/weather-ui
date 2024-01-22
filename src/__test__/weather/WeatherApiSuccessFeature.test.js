@@ -1,10 +1,11 @@
-import { cleanup } from "@testing-library/react";
 import { defineFeature, loadFeature } from "jest-cucumber";
 import { getWeatherReport } from "../../service/getWeatherReport";
 import "@testing-library/jest-dom/extend-expect";
 import axios from "axios";
 
-const feature = loadFeature("src/__test__/features/weather.feature");
+const feature = loadFeature(
+  "src/__test__/features/WeatherSuccessResponse.feature"
+);
 
 defineFeature(feature, (test) => {
   afterEach(() => {

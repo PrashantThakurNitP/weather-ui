@@ -54,3 +54,23 @@ export const WeatherCard = ({ weather }) => {
     </div>
   );
 };
+WeatherCard.propTypes = {
+  weather: PropTypes.shape({
+    message: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    dailyWeathers: PropTypes.shape({
+      temperature: PropTypes.number.isRequired,
+      date: PropTypes.string.isRequired,
+      time: PropTypes.string.isRequired,
+      windSpeed: PropTypes.number.isRequired,
+      minTemperature: PropTypes.number.isRequired,
+      maxTemperature: PropTypes.number.isRequired,
+      feelsLike: PropTypes.number.isRequired,
+      humidity: PropTypes.number.isRequired,
+      pressure: PropTypes.number.isRequired,
+      visibility: PropTypes.number.isRequired,
+    }).isRequired,
+    weatherType: PropTypes.string.isRequired,
+  }).isRequired,
+};
