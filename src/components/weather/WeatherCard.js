@@ -47,7 +47,7 @@ export const WeatherCard = ({ weather }) => {
       />
       <p data-testid="weather-card-date">{`Date: ${newDate}, Time: ${timeString12hr}`}</p>
       <p data-testid="weather-card-temperature">
-        {`Temperature: ${temperature}°C /Feels Like: ${feelsLike}`}
+        {`Temperature: ${temperature}°C / Feels Like: ${feelsLike}°C `}
         <br />
         Min: {Math.round(minTemperature)}°C / Max: {Math.round(maxTemperature)}
         °C

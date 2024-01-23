@@ -38,7 +38,7 @@ describe("TemperatureCard", () => {
       "Date: 2024-01-21, Time: 5:00 PM"
     );
     expect(screen.getByTestId("weather-card-temperature")).toHaveTextContent(
-      "Temperature: 25°C /Feels Like: 26Min: 20°C / Max: 30°C"
+      "Temperature: 25°C / Feels Like: 26°C Min: 20°C / Max: 30°C"
     );
     expect(screen.getByTestId("weather-card-wind")).toHaveTextContent(
       "Wind Speed: 5 m/s"
