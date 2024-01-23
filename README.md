@@ -11,6 +11,38 @@ npm run test
 
 npm start
 
+## UI 
+
+**Display Detail Weather**
+
+![Alt text](<Screenshot 2024-01-23 at 1.59.04 PM.png>)
+
+**Weather Forecast**
+
+![Alt text](<Screenshot 2024-01-23 at 2.02.09 PM.png>)
+
+**Error Handling**
+
+![Alt text](<Screenshot 2024-01-23 at 1.59.31 PM.png>)
+
+**Jenkin Dashboard**
+
+![Alt text](<Screenshot 2024-01-23 at 1.54.42 PM.png>)
+
+**Minikube : Deployment Service and Pods**
+
+![Alt text](<Screenshot 2024-01-23 at 2.09.57 PM.png>)
+
+**Lighthouse Report**
+
+![Alt text](<Screenshot 2024-01-23 at 2.05.57 PM.png>)
+
+
+
+
+
+
+
 ## Flow Chart of Application
 
 ![Alt text](flowchartweatherapp.drawio.png)
