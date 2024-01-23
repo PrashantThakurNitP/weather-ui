@@ -3,7 +3,7 @@
 
 ## This Weather App is built Using Reactjs . It aims to display users with accurate and insightful weather information for the next 3 days. It utilizes Open Weather API to get accurate weather prediction for any city, processes it, and presents the forecast along with additional conditions like rain, high winds, and thunderstorms.
 
-**Local Setup**
+## Local Setup**
 
 npm install
 
@@ -25,31 +25,31 @@ npm start
 
 ![Alt text](<Screenshot 2024-01-23 at 1.59.31 PM.png>)
 
+## Deployment
+
+This Repo Contain Jenkins Script which run build, test, create docker image, push to docker hub and deploy on minikube kubernetes cluster
+
 **Jenkin Dashboard**
 
 ![Alt text](<Screenshot 2024-01-23 at 1.54.42 PM.png>)
 
-**Minikube : Deployment Service and Pods**
+**Minikube (Kubernetes): Deployment Service and Pods**
 
 ![Alt text](<Screenshot 2024-01-23 at 2.09.57 PM.png>)
 
-**Lighthouse Report**
+## Lighthouse Report
 
 ![Alt text](<Screenshot 2024-01-23 at 2.05.57 PM.png>)
 
 
 
+## Code Coverage
 
-
-
+![Alt text](<weather app coverage.png>)
 
 ## Flow Chart of Application
 
 ![Alt text](flowchartweatherapp.drawio.png)
-
-## Code Coverage
-
-![Alt text](<weather app coverage.png>)
 
 ##React Components
 
@@ -86,9 +86,6 @@ Launches the test runner in the interactive watch mode.\
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Deployment
-
-This Repo Contain Jenkins Script which run build, test, create docker image, push to docker hub and deploy on minikube kubernetes cluster
 
 
 
