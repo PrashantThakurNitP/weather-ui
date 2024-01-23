@@ -34,7 +34,6 @@ defineFeature(feature, (test) => {
         });
       });
 
-      // Assuming getWeatherReport fetches weather data using Axios
       response = await getWeatherReport(city);
     });
 

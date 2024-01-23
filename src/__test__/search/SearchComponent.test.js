@@ -55,7 +55,6 @@ describe("SearchComponent", () => {
   it("handles error from getWeatherReport and calls handleInvalidCity", async () => {
     const mockHandleInvalidCity = jest.fn();
 
-    // Mock the getWeatherReport function to throw an error
     getWeatherReport.mockRejectedValueOnce(new Error("Invalid city"));
 
     const { getByPlaceholderText, getByText } = render(
