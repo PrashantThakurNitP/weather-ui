@@ -24,11 +24,13 @@ export const SearchComponent = ({ onSubmitCity, handleInvalidCity }) => {
         onSubmitCity(report.data);
       }
     } catch (err) {
-      if (err.message === "Network Error") {
-        setErrorMessage(err.message + ". Unable to fetch weather Report.");
-      } else {
+      if (err.message === "Request failed with status code 404") {
         setErrorMessage("Please enter a valid city name.");
         handleInvalidCity();
+      } else if (err.message === "Network Error") {
+        setErrorMessage(err.message + ". Unable to fetch weather Report.");
+      } else {
+        setErrorMessage("Unable to fetch weather Report.");
       }
     }
   };

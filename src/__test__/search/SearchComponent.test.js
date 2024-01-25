@@ -55,7 +55,9 @@ describe("SearchComponent", () => {
   it("handles error from getWeatherReport and calls handleInvalidCity", async () => {
     const mockHandleInvalidCity = jest.fn();
 
-    getWeatherReport.mockRejectedValueOnce(new Error("Invalid city"));
+    getWeatherReport.mockRejectedValueOnce(
+      new Error("Request failed with status code 404")
+    );
 
     const { getByPlaceholderText, getByText } = render(
       <SearchComponent
@@ -78,7 +80,7 @@ describe("SearchComponent", () => {
     });
   });
 
-  it("handles error from getWeatherReport and calls handleNetwork Error", async () => {
+  it("handle Network Error", async () => {
     const mockHandleNetworkError = jest.fn();
 
     getWeatherReport.mockRejectedValueOnce(new Error("Network Error"));
@@ -99,6 +101,28 @@ describe("SearchComponent", () => {
       const errorMessageElement = getByText(
         "Network Error. Unable to fetch weather Report."
       );
+      expect(errorMessageElement).toBeInTheDocument();
+    });
+  });
+  it("handle Generic Exception", async () => {
+    const mockHandleNetworkError = jest.fn();
+
+    getWeatherReport.mockRejectedValueOnce(new Error("IO Exception"));
+
+    const { getByPlaceholderText, getByText } = render(
+      <SearchComponent
+        onSubmitCity={() => {}}
+        handleInvalidCity={mockHandleNetworkError}
+      />
+    );
+
+    const inputElement = getByPlaceholderText("Enter city name");
+    fireEvent.change(inputElement, { target: { value: "City" } });
+    const submitButton = getByText("Submit");
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      const errorMessageElement = getByText("Unable to fetch weather Report.");
       expect(errorMessageElement).toBeInTheDocument();
     });
   });
